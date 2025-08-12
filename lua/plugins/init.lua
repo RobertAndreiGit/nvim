@@ -1,10 +1,31 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
+    config = function()
+      require("conform").setup {
+        formatters_by_ft = {
+          javascript = { "prettier" },
+          typescript = { "prettier" },
+          javascriptreact = { "prettier" },
+          typescriptreact = { "prettier" },
+          json = { "prettier" },
+          html = { "prettier" },
+          css = { "prettier" },
+          markdown = { "prettier" },
+          lua = { "stylua" },
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
+        },
+      }
+    end,
+    lazy = false,
   },
-
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -12,29 +33,28 @@ return {
       require "configs.lspconfig"
     end,
   },
-
-  -- GitHub Copilot
-  {
-    "github/copilot.vim",
-    lazy = false
-  },
-
   {
     "qpkorr/vim-bufkill",
     lazy = false,
-  }
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
+  },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "tsx",
+        "json",
+      },
+      highlight = {
+        enable = true,
+        disable = {},
+      },
+    },
+  },
   -- ~/.config/nvim/lua/plugins/init.lua
-
 }
