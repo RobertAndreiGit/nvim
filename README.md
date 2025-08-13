@@ -1,23 +1,23 @@
 ## Clean Up Existing Config
 
-# Linux / MacOS (unix)
+#### Linux / MacOS (unix)
 
 rm -rf ~/.config/nvim
 rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 
-# Flatpak (linux)
+#### Flatpak (linux)
 
 rm -rf ~/.var/app/io.neovim.nvim/config/nvim
 rm -rf ~/.var/app/io.neovim.nvim/data/nvim
 rm -rf ~/.var/app/io.neovim.nvim/.local/state/nvim
 
-# Windows CMD
+#### Windows CMD
 
 rd -r ~\AppData\Local\nvim
 rd -r ~\AppData\Local\nvim-data
 
-# Windows PowerShell
+#### Windows PowerShell
 
 rm -Force ~\AppData\Local\nvim
 rm -Force ~\AppData\Local\nvim-data
