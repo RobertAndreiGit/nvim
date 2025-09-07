@@ -24,10 +24,17 @@ vim.keymap.set("n", "<leader>ta", function()
   require("neotest").playwright.attachment()
 end, { desc = "Launch Playwright test attachment" })
 
+vim.g.copilot_no_tab_map = true
+vim.keymap.set(
+  "i",
+  "<C-w>",
+  'copilot#Accept("<CR>")',
+  { expr = true, replace_keycodes = false, silent = true, desc = "Copilot Accept" }
+)
+
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
---
